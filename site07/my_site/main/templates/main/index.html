@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор челленджей</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+        }
+
+        /* Верхняя панель */
+        .top-bar {
+            background:rgb(98, 135, 248);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .auth-buttons a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background 0.3s;
+            margin-left: 10px;
+        }
+
+        .auth-buttons .login {
+            background:#28a745;
+        }
+
+        .auth-buttons .login:hover {
+            background: #218838;
+        }
+
+        .auth-buttons .register {
+            background: #28a745;
+        }
+
+        .auth-buttons .register:hover {
+            background: #218838;
+        }
+
+        /* Header */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(42, 92, 246, 0.7), rgba(30, 64, 175, 0.7)), 
+                        url('static/main/img/image 14.png') center/cover no-repeat;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Кнопка начала */
+        .cta-button {
+            background: #28a745;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, background 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: #218838;
+        }
+
+        /* Карточки челленджей */
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .challenge-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: #2A5CF6;
+            margin-bottom: 15px;
+        }
+
+        /* Особенности платформы */
+        .features-section {
+            background: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .feature-item {
+            max-width: 250px;
+            margin: 0 auto 40px;
+        }
+
+        .feature-number {
+            font-size: 2.5rem;
+            color: #2A5CF6;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .challenges-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Верхняя панель с кнопками входа и регистрации -->
+    <div class="top-bar">
+        <div class="auth-buttons">
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="login">Выйти ({{ user.username }})</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="login">Войти</a>
+                <a href="{% url 'register' %}" class="register">Зарегистрироваться</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="main-title">Выбери свой идеальный челлендж</h1>
+            <p class="subtitle">Сайт для организации и участия в челленджах, направленных на личностный рост</p>
+            <a href="page" class="cta-button">Начать бесплатно</a>
+        </div>
+    </header>
+
+    <section class="challenges-grid">
+        <div class="challenge-card">
+            <i class="fas fa-running card-icon"></i>
+            <h3>Спорт и Активность</h3>
+            <p>30-дневные программы тренировок</p>
+        </div>
+
+        <div class="challenge-card">
+            <i class="fas fa-utensils card-icon"></i>
+            <h3>Правильное Питание</h3>
+            <p>Здоровые привычки питания</p>
+        </div>
+
+        <div class="challenge-card">
+            <i class="fas fa-brain card-icon"></i>
+            <h3>Саморазвитие</h3>
+            <p>Курсы по личностному росту</p>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="challenges-grid">
+            <div class="feature-item">
+                <div class="feature-number">Удобный</div>
+                <h4>Интерфейс сайта</h4>
+                <p>и структура челленджей</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-number">Множество</div>
+                <h4>Челленджей</h4>
+                <p>На любой вкус и уровень</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-number">98%</div>
+                <h4>Успешных результатов</h4>
+                <p>Достигай целей вместе с нами</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,367 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Здоровое питание</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #eef1f6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .header img {
+            width: 70%;
+            border-radius: 10px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background: #2A5CF6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background: #1E4BB8;
+        }
+
+        .title {
+            font-size: 2rem;
+            margin: 20px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .plan h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .step {
+            background: #2A5CF6;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            justify-content: space-between;
+        }
+
+        .step-content {
+            display: none;
+            background: #eef1f6;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-size: 1rem;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+        <a href="/page" class="back-button">&larr; Назад к челленджам</a>
+        
+        <div class="header">
+            <img src="{% static 'main/img/image1.png' %}" alt="Здоровое питание">
+        </div>
+
+        <h1 class="title">Здоровое питание</h1>
+        <p class="description">Освой полезные привычки питания за месяц</p>
+
+        <section class="plan">
+            <h2>План действий</h2>
+            <ul class="steps">
+                <li class="step" onclick="toggleStep(1)">
+                    <span><i class="fas fa-dumbbell"></i> День 1-10: Основы здорового питания</span>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <ul class="step-content" id="step-1">
+                    <li>День 1:
+
+                        Завтрак: Овсянка с ягодами.
+                        
+                        Обед: Гречка с куриной грудкой + салат из огурцов и помидоров.
+                        
+                        Ужин: Рыба на пару + тушеные овощи.</li>
+                    <li>День 2:
+
+                        Завтрак: Творог с бананом.
+                        
+                        Обед: Киноа с индейкой + шпинат.
+                        
+                        Ужин: Омлет с овощами.</li>
+                    <li>ДДень 3:
+
+                        Завтрак: Смузи (шпинат, банан, овсяные хлопья).
+                        
+                        Обед: Булгур с запеченной рыбой + капустный салат.
+                        
+                        Ужин: Куриное филе-гриль + брокколи.</li>
+                    <li>День 4:
+
+                        Завтрак: Яичница с овощами + цельнозерновой хлеб.
+                        
+                        Обед: Чечевичный суп + салат из свеклы и рукколы.
+                        
+                        Ужин: Тушеная говядина с тыквой.</li>
+                    <li>День 5:
+
+                        Завтрак: Овсянка с орехами и медом.
+                        
+                        Обед: Рис с курицей + салат из моркови и капусты.
+                        
+                        Ужин: Запеченная рыба + овощное рагу.</li>
+                    <li>День 6:
+
+                        Завтрак: Творог с ягодами.
+                        
+                        Обед: Гречка с индейкой + салат из огурцов.
+                        
+                        Ужин: Омлет с авокадо.</li>
+                    <li>День 7:
+
+                        Завтрак: Смузи (яблоко, морковь, овсяные хлопья).
+                        
+                        Обед: Киноа с рыбой + шпинат.
+                        
+                        Ужин: Куриное филе-гриль + тушеные овощи.</li>
+                    <li>День 8:
+
+                        Завтрак: Яичница с помидорами.
+                        
+                        Обед: Булгур с курицей + салат из свеклы.
+                        
+                        Ужин: Рыба на пару + брокколи.</li>
+                    <li>День 9:
+
+                        Завтрак: Овсянка с фруктами.
+                        
+                        Обед: Гречка с индейкой + салат из огурцов.
+                        
+                        Ужин: Омлет с овощами.</li>
+                    <li>День 10:
+
+                        Завтрак: Творог с орехами.
+                        
+                        Обед: Рис с рыбой + салат из капусты.
+                        
+                        Ужин: Запеченная курица с овощами.</li>
+                </ul>
+
+                <li class="step" onclick="toggleStep(2)">
+                    <span><i class="fas fa-running"></i> День 11-20: Углубление в здоровое питание</span>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <ul class="step-content" id="step-2">
+                    <li>День 11:
+
+                        Завтрак: Овсянка с ягодами.
+                        
+                        Обед: Киноа с курицей + салат из огурцов.
+                        
+                        Ужин: Рыба на пару + тушеные овощи.</li>
+                    <li>День 12:
+
+                        Завтрак: Творог с бананом.
+                        
+                        Обед: Гречка с индейкой + шпинат.
+                        
+                        Ужин: Омлет с авокадо.</li>
+                    <li>День 13:
+
+                        Завтрак: Смузи шпинат, банан, овсяные хлопья.
+                        
+                        Обед: Булгур с рыбой + салат из свеклы.
+                        
+                        Ужин: Куриное филе-гриль + брокколи.</li>
+                    <li>День 14:
+
+                        Завтрак: Яичница с овощами.
+                        
+                        Обед: Чечевичный суп + салат из моркови.
+                        
+                        Ужин: Тушеная говядина с тыквой.</li>
+                    <li>День 15:
+
+                        Завтрак: Овсянка с орехами.
+                        
+                        Обед: Рис с курицей + салат из капусты.
+                        
+                        Ужин: Запеченная рыба + овощное рагу.</li>
+                    <li>День 16:
+
+                        Завтрак: Творог с ягодами.
+                        
+                        Обед: Гречка с индейкой + салат из огурцов.
+                        
+                        Ужин: Омлет с авокадо.</li>
+                    <li>День 17:
+
+                        Завтрак: Смузи (яблоко, морковь, овсяные хлопья).
+                        
+                        Обед: Киноа с рыбой + шпинат.
+                        
+                        Ужин: Куриное филе-гриль + тушеные овощи.</li>
+                    <li>День 18:
+
+                        Завтрак: Яичница с помидорами.
+                        
+                        Обед: Булгур с курицей + салат из свеклы.
+                        
+                        Ужин: Рыба на пару + брокколи.</li>
+                    <li>День 19:
+
+                        Завтрак: Овсянка с фруктами.
+                        
+                        Обед: Гречка с индейкой + салат из огурцов.
+                        
+                        Ужин: Омлет с овощами.</li>
+                    <li>День 20:
+
+                        Завтрак: Творог с орехами.
+                        
+                        Обед: Рис с рыбой + салат из капусты.
+                        
+                        Ужин: Запеченная курица с овощами.</li>
+                </ul>
+
+                <li class="step" onclick="toggleStep(3)">
+                    <span><i class="fas fa-heartbeat"></i> День 21-30: Закрепление привычек</span>
+                    <i class="fas fa-chevron-down"></i>
+                </li>
+                <ul class="step-content" id="step-3">
+                    <li>День 21:
+
+                        Завтрак: Овсянка с ягодами.
+                        
+                        Обед: Киноа с курицей + салат из огурцов.
+                        
+                        Ужин: Рыба на пару + тушеные овощи.</li>
+                    <li>День 22:
+
+                        Завтрак: Творог с бананом.
+                        
+                        Обед: Гречка с индейкой + шпинат.
+                        
+                        Ужин: Омлет с авокадо.</li>
+                    <li>День 23:
+
+                        Завтрак: Смузи шпинат, банан, овсяные хлопья.
+                        
+                        Обед: Булгур с рыбой + салат из свеклы.
+                        
+                        Ужин: Куриное филе-гриль + брокколи.</li>
+                    <li>День 24:
+
+                        Завтрак: Яичница с овощами.
+                        
+                        Обед: Чечевичный суп + салат из моркови.
+                        
+                        Ужин: Тушеная говядина с тыквой.</li>
+                    <li>День 25:
+
+                        Завтрак: Овсянка с орехами.
+                        
+                        Обед: Рис с курицей + салат из капусты.
+                        
+                        Ужин: Запеченная рыба + овощное рагу.</li>
+                    <li>День 26:
+
+                        Завтрак: Творог с ягодами.
+                        
+                        Обед: Гречка с индейкой + салат из огурцов.
+                        
+                        Ужин: Омлет с авокадо.</li>
+                    <li>День 27:
+
+                        Завтрак: Смузи яблоко, морковь, овсяные хлопья.
+                        
+                        Обед: Киноа с рыбой + шпинат.
+                        
+                        Ужин: Куриное филе-гриль + тушеные овощи.</li>
+                    <li>День 28:
+
+                        Завтрак: Яичница с помидорами.
+                        
+                        Обед: Булгур с курицей + салат из свеклы.
+                        
+                        Ужин: Рыба на пару + брокколи.</li>
+                    <li>День 29:
+
+                        Завтрак: Овсянка с фруктами.
+                        
+                        Обед: Гречка с индейкой + салат из огурцов.
+                        
+                        Ужин: Омлет с овощами.</li>
+                    <li>День 30:
+
+                        Завтрак: Творог с орехами.
+                        
+                        Обед: Рис с рыбой + салат из капусты.
+                        
+                        Ужин: Запеченная курица с овощами.</li>
+                </ul>
+            </ul>
+        </section>
+        <section class="video-section">
+            <h2>Видео-тренировка</h2>
+            <iframe src="{% static 'main/video/pitanie.mp4' %}" allowfullscreen></iframe>
+        </section>
+    </div>
+    <script>
+        function toggleStep(step) {
+            let content = document.getElementById('step-' + step);
+            let icon = content.previousElementSibling.querySelector("i.fas.fa-chevron-down");
+            
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                icon.style.transform = "rotate(0deg)";
+            } else {
+                content.style.display = "block";
+                icon.style.transform = "rotate(180deg)";
+            }
+        }
+    </script>
+</body>
+</html>

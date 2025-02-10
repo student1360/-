@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор челленджа</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #eef1f6;
+        }
+
+        .header {
+            position: relative;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(22, 80, 200, 0.7); /* Полупрозрачный синий */
+            z-index: 1;
+        }
+        
+        .header {
+            background: 
+            url("{% static 'main/img/image 6.png' %}") center/cover no-repeat;
+        }
+        
+        .header h1, .header p, .back-button {
+            position: relative;
+            z-index: 2; /* Чтобы текст был поверх слоя */
+        }
+        /* Кнопка возврата */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Фильтр */
+        .filter-container {
+            text-align: center;
+            margin: 40px auto;
+        }
+
+        .filter-input {
+            width: 400px;
+            padding: 12px;
+            border-radius: 25px;
+            border: 2px solid #2A5CF6;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+        }
+
+        /* Сетка челленджей */
+        .challenges-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .challenge-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .challenge-card i {
+            font-size: 2.5rem;
+            color: #2A5CF6;
+            margin-bottom: 20px;
+        }
+
+        .challenge-title {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .challenge-text {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Кнопка */
+        .challenge-button {
+            background: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .challenge-button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <a href="/" class="back-button">← На главную</a>
+        <h1>Выбор челленджа</h1>
+        <p>Найди челлендж, который поможет тебе стать лучше</p>
+    </header>
+
+    <section class="filter-container">
+        <input type="text" id="search" class="filter-input" placeholder="🔍 Найти челлендж...">
+    </section>
+
+    <section class="challenges-container">
+        <div class="challenge-card" data-title="Фитнес-марафон">
+            <i class="fas fa-running"></i>
+            <h3 class="challenge-title">Фитнес-марафон</h3>
+            <p class="challenge-text">30-дневные тренировки для улучшения физической формы</p>
+            <a href="http://127.0.0.1:8000/page1/" class="challenge-button">Подробнее</a>
+        </div>
+
+        <div class="challenge-card" data-title="Здоровое питание">
+            <i class="fas fa-utensils"></i>
+            <h3 class="challenge-title">Здоровое питание</h3>
+            <p class="challenge-text">Освой полезные привычки питания за месяц</p>
+            <a href="http://127.0.0.1:8000/page2/" class="challenge-button">Подробнее</a>
+        </div>
+
+        <div class="challenge-card" data-title="Чтение книг">
+            <i class="fas fa-book"></i>
+            <h3 class="challenge-title">Чтение книг</h3>
+            <p class="challenge-text">Прочитай 10 книг за 3 месяца</p>
+            <a href="http://127.0.0.1:8000/page3/" class="challenge-button">Подробнее</a>
+        </div>
+
+        <div class="challenge-card" data-title="Медитация">
+            <i class="fas fa-spa"></i>
+            <h3 class="challenge-title">Медитация</h3>
+            <p class="challenge-text">Практикуй осознанность 10 минут в день</p>
+            <a href="#" class="challenge-button">Подробнее</a>
+        </div>
+
+        <div class="challenge-card" data-title="Изучение программирования">
+            <i class="fas fa-code"></i>
+            <h3 class="challenge-title">Изучение программирования</h3>
+            <p class="challenge-text">Изучи новый язык программирования за месяц</p>
+            <a href="#" class="challenge-button">Подробнее</a>
+        </div>
+
+        <div class="challenge-card" data-title="Творческий вызов">
+            <i class="fas fa-paint-brush"></i>
+            <h3 class="challenge-title">Творческий вызов</h3>
+            <p class="challenge-text">Создай 30 рисунков за 30 дней</p>
+            <a href="#" class="challenge-button">Подробнее</a>
+        </div>
+
+        <div class="challenge-card" data-title="Йога и растяжка">
+            <i class="fas fa-dumbbell"></i>
+            <h3 class="challenge-title">Йога и растяжка</h3>
+            <p class="challenge-text">Гибкость и расслабление за 30 дней</p>
+            <a href="#" class="challenge-button">Подробнее</a>
+        </div>
+
+        <div class="challenge-card" data-title="Финансовая грамотность">
+            <i class="fas fa-coins"></i>
+            <h3 class="challenge-title">Финансовая грамотность</h3>
+            <p class="challenge-text">Учи основы инвестиций и управления деньгами</p>
+            <a href="#" class="challenge-button">Подробнее</a>
+        </div>
+
+        <div class="challenge-card" data-title="Экологический челлендж">
+            <i class="fas fa-seedling"></i>
+            <h3 class="challenge-title">Экологический челлендж</h3>
+            <p class="challenge-text">Сделай мир чище за 30 дней</p>
+            <a href="#" class="challenge-button">Подробнее</a>
+        </div>
+    </section>
+    <script>
+        document.getElementById("search").addEventListener("input", function () {
+            let searchQuery = this.value.toLowerCase();
+            let cards = document.querySelectorAll(".challenge-card");
+        
+            cards.forEach(card => {
+                let title = card.getAttribute("data-title").toLowerCase();
+                card.style.display = title.includes(searchQuery) ? "block" : "none";
+            });
+        });        
+    </script>
+</body>
+</html>
+
+
