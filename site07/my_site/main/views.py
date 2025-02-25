@@ -1,6 +1,8 @@
 from django.shortcuts import render
-
-# Create your views here.
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import RegisterForm
 
 def index(request):
     return render(request, "main/index.html")
@@ -17,10 +19,26 @@ def page2(request):
 def page3(request):
     return render(request, "main/page3.html")
 
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.forms import AuthenticationForm
-from .forms import RegisterForm
+def page4(request):
+    return render(request, "main/page4.html")
+
+def page5(request):
+    return render(request, "main/page5.html")
+
+def page6(request):
+    return render(request, "main/page6.html")
+
+def page7(request):
+    return render(request, "main/page7.html")
+
+def page8(request):
+    return render(request, "main/page8.html")
+
+def test(request):
+    return render(request, "main/test.html")
+
+def profile(request):
+    return render(request, "main/profile.html")
 
 def register_view(request):
     if request.method == "POST":
