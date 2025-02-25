@@ -1,0 +1,294 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Челлендж: 30 дней к успеху</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Общие стили, аналогичные главной странице */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background: #f8f9fa;
+      line-height: 1.6;
+      color: #333;
+    }
+    .top-bar {
+      background: rgb(98, 135, 248);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .catalog-button {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: #28a745;
+      transition: background 0.3s;
+    }
+    .catalog-button:hover {
+      background: #218838;
+    }
+
+    /* Секция с данными челленджа */
+    .challenge-details {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .challenge-image {
+      flex: 1;
+      background: url("{% static 'main/img/image.png' %}") center/cover no-repeat;
+      min-height: 300px;
+    }
+    .challenge-info {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .challenge-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .challenge-info p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    /* Секция календаря */
+    .calendar-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .calendar-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .day-box {
+      background: #e9ecef;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .day-box:hover {
+      background: #d4d9de;
+    }
+    .day-plan {
+      display: none;
+      padding: 20px;
+      border-top: 1px solid #ccc;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Секция видеотренировки */
+    .video-training {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .video-training h2 {
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 25px;
+      height: 0;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 768px) {
+      .challenge-details {
+        flex-direction: column;
+      }
+      .challenge-image {
+        min-height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="/page" class="catalog-button">Вернуться в каталог челленджей</a>
+  </div>
+
+  <section class="challenge-details">
+    <div class="challenge-image">
+    </div>
+    <div class="challenge-info">
+      <h2>Фитнес-марафон</h2>
+      <p>
+        Многодневный челлендж, направленный на улучшение физической формы, формирование здоровых привычек и повышение мотивации участников.
+      </p>
+    </div>
+  </section>
+
+  <section class="calendar-section">
+    <h2>Календарь</h2>
+    <div class="calendar-grid">
+      <div class="day-box" data-day="1">1</div>
+      <div class="day-box" data-day="2">2</div>
+      <div class="day-box" data-day="3">3</div>
+      <div class="day-box" data-day="4">4</div>
+      <div class="day-box" data-day="5">5</div>
+      <div class="day-box" data-day="6">6</div>
+      <div class="day-box" data-day="7">7</div>
+      <div class="day-box" data-day="8">8</div>
+      <div class="day-box" data-day="9">9</div>
+      <div class="day-box" data-day="10">10</div>
+      <div class="day-box" data-day="11">11</div>
+      <div class="day-box" data-day="12">12</div>
+      <div class="day-box" data-day="13">13</div>
+      <div class="day-box" data-day="14">14</div>
+      <div class="day-box" data-day="15">15</div>
+      <div class="day-box" data-day="16">16</div>
+      <div class="day-box" data-day="17">17</div>
+      <div class="day-box" data-day="18">18</div>
+      <div class="day-box" data-day="19">19</div>
+      <div class="day-box" data-day="20">20</div>
+      <div class="day-box" data-day="21">21</div>
+      <div class="day-box" data-day="22">22</div>
+      <div class="day-box" data-day="23">23</div>
+      <div class="day-box" data-day="24">24</div>
+      <div class="day-box" data-day="25">25</div>
+      <div class="day-box" data-day="26">26</div>
+      <div class="day-box" data-day="27">27</div>
+      <div class="day-box" data-day="28">28</div>
+      <div class="day-box" data-day="29">29</div>
+      <div class="day-box" data-day="30">30</div>
+    </div>
+    <div class="day-plan" id="day-plan">
+    </div>
+  </section>
+
+  <section class="video-training">
+    <h2>Общая видеотренировка</h2>
+    <div class="video-container">
+      <iframe src="{% static 'main/video/fitnes.mp4' %}" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dayBoxes = document.querySelectorAll('.day-box');
+      const dayPlan = document.getElementById('day-plan');
+
+      dayBoxes.forEach(function(box) {
+        box.addEventListener('click', function() {
+          const day = this.getAttribute('data-day');
+          dayPlan.innerHTML = `
+            <h3>План для дня ${day}</h3>
+            <p>Здесь будет подробное описание упражнений, рекомендации по питанию и мотивационные советы для дня ${day}.</p>
+          `;
+          dayPlan.style.display = "block";
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dayBoxes = document.querySelectorAll('.day-box');
+      const dayPlan = document.getElementById('day-plan');
+  
+      const dayDescriptions = {
+        1: "Кардио 30 мин (бег/велосипед), завтрак с высоким содержанием белка, фото «до».",  
+        2: "Силовая тренировка (приседания, отжимания, планка), добавить 2 порции овощей.",  
+        3: "Йога/пилатес 40 мин, контрастный душ.",  
+        4: "Интервальное кардио (20/40 сек), выпить 2 л воды.",  
+        5: "Круговая тренировка (5 упражнений), исключить сахар.",  
+        6: "Прогулка 1 час, массаж роллером.",  
+        7: "Плавание/танцы 45 мин, записать достижения.",  
+        8: "HIIT 25 мин, новый полезный рецепт.",  
+        9: "Силовая с утяжелителями (гантели, резинки), 100 шагов в планке.",  
+        10: "Растяжка + медитация 30 мин, сон 8 часов.",  
+        11: "Функциональный тренинг (бурпи, выпады, прыжки), углеводы — только сложные.",  
+        12: "Кардио + силовая (суперсеты), поделиться прогрессом в соцсетях.",  
+        13: "Велосипед/ролики, солевая ванна.",  
+        14: "Пробежка на время (улучшить результат дня 1), сравнить фото «до» и текущее состояние.",  
+        15: "Кроссфит-комплекс (AMRAP за 20 мин), белок 2 г на кг веса.",  
+        16: "Спринты (10 забегов по 50 метров), 200 приседаний за день.",  
+        17: "Йога для глубокой растяжки, дыхательные практики.",  
+        18: "Силовая на выносливость (мало отдыха), добавить полезные жиры (авокадо, орехи).",  
+        19: "Плиометрика (прыжковые упражнения), тренировка с другом (онлайн/офлайн).",  
+        20: "Поход или скалолазание, массаж.",  
+        21: "Тестирование (повторить День 1), написать благодарность себе за усилия.",  
+        22: "Табата (8 раундов по 20/10 сек), детокс-день (смузи, овощи на пару).",  
+        23: "Силовая с акцентом на слабые зоны, 5 минут планки за день.",  
+        24: "Пилатес + растяжка, СПА-ритуал дома.",  
+        25: "Кардио-танцы (Zumba, хип-хоп), устроить читмил (1 вредное блюдо).",  
+        26: "Воркаут (турник, брусья), пробежать/пройти 5 км.",  
+        27: "Активные игры (волейбол, бадминтон), сон 9 часов.",  
+        28: "Фулл-бади (все группы мышц), записать эмоции и изменения.",  
+        29: "Повторить любимую тренировку марафона, праздничный ужин из полезных продуктов.",  
+        30: "Финальное тестирование (повторить День 1 и 21), фото «после», спа-день и визуализация целей."
+      };
+  
+      dayBoxes.forEach(function(box) {
+        box.addEventListener('click', function() {
+          const day = this.getAttribute('data-day');
+          const description = dayDescriptions[day] || "Описание для этого дня пока не добавлено.";
+  
+          dayPlan.innerHTML = `
+            <h3>План для дня ${day}</h3>
+            <p>${description}</p>
+          `;
+          dayPlan.style.display = "block";
+        });
+      });
+    });
+  </script>
+  
+</body>
+</html>
+
+
+
+
+

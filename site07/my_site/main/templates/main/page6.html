@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Челлендж: 30 дней к успеху</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Общие стили, аналогичные главной странице */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background: #f8f9fa;
+      line-height: 1.6;
+      color: #333;
+    }
+    .top-bar {
+      background: rgb(98, 135, 248);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .catalog-button {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: #28a745;
+      transition: background 0.3s;
+    }
+    .catalog-button:hover {
+      background: #218838;
+    }
+
+    /* Секция с данными челленджа */
+    .challenge-details {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .challenge-image {
+      flex: 1;
+      background: url("{% static 'main/img/image7.png' %}") center/cover no-repeat;
+      min-height: 300px;
+    }
+    .challenge-info {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .challenge-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .challenge-info p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    /* Секция календаря */
+    .calendar-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .calendar-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .day-box {
+      background: #e9ecef;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .day-box:hover {
+      background: #d4d9de;
+    }
+    .day-plan {
+      display: none;
+      padding: 20px;
+      border-top: 1px solid #ccc;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Секция видеотренировки */
+    .video-training {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .video-training h2 {
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 25px;
+      height: 0;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 768px) {
+      .challenge-details {
+        flex-direction: column;
+      }
+      .challenge-image {
+        min-height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="/page" class="catalog-button">Вернуться в каталог челленджей</a>
+  </div>
+
+  <section class="challenge-details">
+    <div class="challenge-image">
+    </div>
+    <div class="challenge-info">
+      <h2>Йога и растяжка</h2>
+      <p>
+        Погрузись в практику, которая объединяет тело и разум! Этот марафон — не просто про гибкость, а про осознанное движение, снятие напряжения и постепенное раскрытие твоего потенциала.
+      </p>
+    </div>
+  </section>
+
+  <section class="calendar-section">
+    <h2>Календарь</h2>
+    <div class="calendar-grid">
+      <div class="day-box" data-day="1">1</div>
+      <div class="day-box" data-day="2">2</div>
+      <div class="day-box" data-day="3">3</div>
+      <div class="day-box" data-day="4">4</div>
+      <div class="day-box" data-day="5">5</div>
+      <div class="day-box" data-day="6">6</div>
+      <div class="day-box" data-day="7">7</div>
+      <div class="day-box" data-day="8">8</div>
+      <div class="day-box" data-day="9">9</div>
+      <div class="day-box" data-day="10">10</div>
+      <div class="day-box" data-day="11">11</div>
+      <div class="day-box" data-day="12">12</div>
+      <div class="day-box" data-day="13">13</div>
+      <div class="day-box" data-day="14">14</div>
+      <div class="day-box" data-day="15">15</div>
+      <div class="day-box" data-day="16">16</div>
+      <div class="day-box" data-day="17">17</div>
+      <div class="day-box" data-day="18">18</div>
+      <div class="day-box" data-day="19">19</div>
+      <div class="day-box" data-day="20">20</div>
+      <div class="day-box" data-day="21">21</div>
+      <div class="day-box" data-day="22">22</div>
+      <div class="day-box" data-day="23">23</div>
+      <div class="day-box" data-day="24">24</div>
+      <div class="day-box" data-day="25">25</div>
+      <div class="day-box" data-day="26">26</div>
+      <div class="day-box" data-day="27">27</div>
+      <div class="day-box" data-day="28">28</div>
+      <div class="day-box" data-day="29">29</div>
+      <div class="day-box" data-day="30">30</div>
+    </div>
+    <div class="day-plan" id="day-plan">
+    </div>
+  </section>
+
+  <section class="video-training">
+    <h2>Общая видеотренировка</h2>
+    <div class="video-container">
+      <iframe src="{% static 'main/video/ioga.mp4' %}" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dayBoxes = document.querySelectorAll('.day-box');
+      const dayPlan = document.getElementById('day-plan');
+
+      dayBoxes.forEach(function(box) {
+        box.addEventListener('click', function() {
+          const day = this.getAttribute('data-day');
+          dayPlan.innerHTML = `
+            <h3>План для дня ${day}</h3>
+          `;
+          dayPlan.style.display = "block";
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dayBoxes = document.querySelectorAll('.day-box');
+      const dayPlan = document.getElementById('day-plan');
+  
+      const dayDescriptions = {   
+            1: "Знакомство с базовыми асанами (собака мордой вниз, поза горы, шавасана), дыхание «уджайи» 5 мин.",  
+            2: "Йога для начинающих: поток «Приветствие Солнцу» (5 кругов), растяжка спины.",  
+            3: "Инь-йога: поза голубя, бабочки, ребенка (удержание по 3 мин на сторону).",  
+            4: "Утренняя растяжка шеи и плеч, вечерняя медитация на свече (10 мин).",  
+            5: "Виньяса-поток с акцентом на баланс (поза дерева, воина III).",  
+            6: "Растяжка подколенных сухожилий: наклоны вперед, поза посоха.",  
+            7: "Рефлексия: записать, как изменилось тело за неделю, повторить любимую асану.",  
+            8: "Йога для спины: кобра, саранча, мост, скрутки лежа.",  
+            9: "Пранаяма: «нади шодхана» (попеременное дыхание) + шавасана с маской для глаз.",  
+            10: "Раскрытие бедер: поза лягушки, ящерицы, баддха конасана.",  
+            11: "Динамический поток с прыжками (чатуранга, поза ворона — опционально).",  
+            12: "Растяжка всего тела: поза верблюда, колесо, собака мордой вверх.",  
+            13: "Йога в гамаках/с ремнями: инверсии (свеча, плуг).",  
+            14: "Повторить День 1, сравнить ощущения гибкости и силы.",  
+            15: "Аштанга-база: комплекс стоячих асан (воин I, II, треугольник).",  
+            16: "Глубокая растяжка ног: шпагаты (подготовительные вариации).",  
+            17: "Йога-нидра: 20-минутная практика глубокой релаксации.",  
+            18: "Практика с акцентом на пресс: поза лодки, планка, чатуранга.",  
+            19: "Раскрытие грудного отдела: поза рыбы, мостик на валике.",  
+            20: "Йога для снятия стресса: скрутки, наклоны вперед, медитация «ом».",  
+            21: "Рефлексия: фото прогресса в любимой асане, написать благодарность телу.",  
+            22: "Парная йога (онлайн/офлайн) или практика с подушками для баланса.",  
+            23: "Растяжка рук и плеч: гомукхасана, поза орла, нить в иглу.",  
+            24: "Практика в необычном месте (парк, пляж, балкон).",  
+            25: "Интенсивная виньяса: 40-минутный поток с динамичными переходами.",  
+            26: "Инь-йога для тазобедренных суставов: держать асаны по 5 минут.",  
+            27: "Йога-терапия: упражнения при болях в пояснице (кошка-корова, поза кобры).",  
+            28: "Медитация в движении (тай-чи элементы), растяжка с роллером.",  
+            29: "Повторить самую сложную асану месяца, зафиксировать прогресс.",  
+            30: "Финальная практика: 60-минутный поток + ритуал благодарности себе."    
+      };
+  
+      dayBoxes.forEach(function(box) {
+        box.addEventListener('click', function() {
+          const day = this.getAttribute('data-day');
+          const description = dayDescriptions[day] || "Описание для этого дня пока не добавлено.";
+  
+          dayPlan.innerHTML = `
+            <h3>План для дня ${day}</h3>
+            <p>${description}</p>
+          `;
+          dayPlan.style.display = "block";
+        });
+      });
+    });
+  </script>
+  </body>
+</html>

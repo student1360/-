@@ -1,0 +1,283 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Финансовая грамотность</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background: #f8f9fa;
+      line-height: 1.6;
+      color: #333;
+    }
+    .top-bar {
+      background: rgb(98, 135, 248);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .catalog-button {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: #28a745;
+      transition: background 0.3s;
+    }
+    .catalog-button:hover {
+      background: #218838;
+    }
+
+    .challenge-details {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .challenge-image {
+      flex: 1;
+      background: url("{% static 'main/img/image9.png' %}") center/cover no-repeat;
+      min-height: 300px;
+    }
+    .challenge-info {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .challenge-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .challenge-info p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    .calendar-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .calendar-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .day-box {
+      background: #e9ecef;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .day-box:hover {
+      background: #d4d9de;
+    }
+    .day-plan {
+      display: none;
+      padding: 20px;
+      border-top: 1px solid #ccc;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .video-training {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .video-training h2 {
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 25px;
+      height: 0;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 768px) {
+      .challenge-details {
+        flex-direction: column;
+      }
+      .challenge-image {
+        min-height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="/page" class="catalog-button">Вернуться в каталог челленджей</a>
+  </div>
+
+  <section class="challenge-details">
+    <div class="challenge-image">
+    </div>
+    <div class="challenge-info">
+      <h2>Экологический челлендж</h2>
+      <p>
+        Прокачай экологическую осознанность, сократи свой след и вдохнови других на заботу о Земле! Это не про идеальный zero waste — это про постепенные изменения, которые станут твоей новой нормой.
+      </p>
+    </div>
+  </section>
+
+  <section class="calendar-section">
+    <h2>Календарь</h2>
+    <div class="calendar-grid">
+      <div class="day-box" data-day="1">1</div>
+      <div class="day-box" data-day="2">2</div>
+      <div class="day-box" data-day="3">3</div>
+      <div class="day-box" data-day="4">4</div>
+      <div class="day-box" data-day="5">5</div>
+      <div class="day-box" data-day="6">6</div>
+      <div class="day-box" data-day="7">7</div>
+      <div class="day-box" data-day="8">8</div>
+      <div class="day-box" data-day="9">9</div>
+      <div class="day-box" data-day="10">10</div>
+      <div class="day-box" data-day="11">11</div>
+      <div class="day-box" data-day="12">12</div>
+      <div class="day-box" data-day="13">13</div>
+      <div class="day-box" data-day="14">14</div>
+      <div class="day-box" data-day="15">15</div>
+      <div class="day-box" data-day="16">16</div>
+      <div class="day-box" data-day="17">17</div>
+      <div class="day-box" data-day="18">18</div>
+      <div class="day-box" data-day="19">19</div>
+      <div class="day-box" data-day="20">20</div>
+      <div class="day-box" data-day="21">21</div>
+      <div class="day-box" data-day="22">22</div>
+      <div class="day-box" data-day="23">23</div>
+      <div class="day-box" data-day="24">24</div>
+      <div class="day-box" data-day="25">25</div>
+      <div class="day-box" data-day="26">26</div>
+      <div class="day-box" data-day="27">27</div>
+      <div class="day-box" data-day="28">28</div>
+      <div class="day-box" data-day="29">29</div>
+      <div class="day-box" data-day="30">30</div>
+    </div>
+    <div class="day-plan" id="day-plan">
+    </div>
+  </section>
+
+  <section class="video-training">
+    <h2>Общая видеотренировка</h2>
+    <div class="video-container">
+      <iframe src="{% static 'main/video/ekolog.mp4' %}" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dayBoxes = document.querySelectorAll('.day-box');
+      const dayPlan = document.getElementById('day-plan');
+
+      dayBoxes.forEach(function(box) {
+        box.addEventListener('click', function() {
+          const day = this.getAttribute('data-day');
+          dayPlan.innerHTML = `
+            <h3>План для дня ${day}</h3>
+          `;
+          dayPlan.style.display = "block";
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dayBoxes = document.querySelectorAll('.day-box');
+      const dayPlan = document.getElementById('day-plan');
+  
+      const dayDescriptions = {     
+            1: "Заменить одноразовые пакеты на тканевую сумку/фруктовки, сделать фото «эко-старта».",  
+            2: "Купить многоразовую бутылку для воды и отказаться от пластиковых стаканчиков.",  
+            3: "Сортировать мусор: начать с 1 категории (бумага, стекло, пластик).",  
+            4: "Провести аудит бытовой химии: выбрать экологичное средство (без фосфатов, в биоразлагаемой упаковке).",  
+            5: "Создать «эко-набор»: многоразовые трубочки, контейнеры, мешочки для круп.",  
+            6: "Устроить день без мяса: попробовать вегетарианский рецепт.",  
+            7: "Рефлексия: взвесить свой недельный мусор, записать выводы.",  
+            8: "Заменить лампочки на энергосберегающие, выключать свет при выходе из комнаты.",  
+            9: "Собрать батарейки/лампочки и отнести в пункт утилизации.",  
+            10: "Починить 1 сломанную вещь вместо покупки новой (одежда, техника, мебель).",  
+            11: "Купить продукты на развес в свою тару (крупы, орехи, специи).",  
+            12: "Сократить время душа на 5 минут, установить аэратор на кран.",  
+            13: "Создать компост для органики (даже в квартире — с помощью вермикулеи).",  
+            14: "Повторить День 1: сравнить фото, оценить прогресс.",  
+            15: "Найти локальный эко-магазин и купить там товар без упаковки.",  
+            16: "Отказаться от бумажных чеков (попросить кассира не печатать).",  
+            17: "Сделать DIY-средство для уборки (сода + уксус + эфирные масла).",  
+            18: "Посадить дерево/цветок или поддержать экологический фонд.",  
+            19: "Устроить «день без авто»: прогулка, велосипед, каршеринг.",  
+            20: "Провести «разгрузку» гардероба: отдать 5 вещей на переработку/благотворительность.",  
+            21: "Рефлексия: подсчитать, сколько воды/электричества сэкономил за неделю.",  
+            22: "Купить косметику с экомаркировкой (например, cruelty-free, vegan).",  
+            23: "Создать «эко-памятку» для друзей: 5 простых советов.",  
+            24: "Участвовать в субботнике (парк, двор, пляж) или убрать мусор у дома.",  
+            25: "Заменить одноразовые прокладки/тампоны на менструальную чашу/многоразовые трусы.",  
+            26: "Выключить гаджеты на 1 час вечером, сократив энергопотребление.",  
+            27: "Сшить многоразовые маски из старых тканей или подарить их нуждающимся.",  
+            28: "Провести день без покупок: использовать то, что есть дома.",  
+            29: "Написать письмо компании с просьбой перейти на экологичную упаковку.",  
+            30: "Подвести итоги: составить список новых привычек, устроить «эко-пикник» с друзьями."       
+      };
+  
+      dayBoxes.forEach(function(box) {
+        box.addEventListener('click', function() {
+          const day = this.getAttribute('data-day');
+          const description = dayDescriptions[day] || "Описание для этого дня пока не добавлено.";
+  
+          dayPlan.innerHTML = `
+            <h3>План для дня ${day}</h3>
+            <p>${description}</p>
+          `;
+          dayPlan.style.display = "block";
+        });
+      });
+    });
+  </script>
+  </body>
+</html>

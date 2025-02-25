@@ -1,0 +1,289 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Челлендж: 30 дней к успеху</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Общие стили, аналогичные главной странице */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background: #f8f9fa;
+      line-height: 1.6;
+      color: #333;
+    }
+    .top-bar {
+      background: rgb(98, 135, 248);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .catalog-button {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: #28a745;
+      transition: background 0.3s;
+    }
+    .catalog-button:hover {
+      background: #218838;
+    }
+
+    /* Секция с данными челленджа */
+    .challenge-details {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .challenge-image {
+      flex: 1;
+      background: url("{% static 'main/img/image1.png' %}") center/cover no-repeat;
+      min-height: 300px;
+    }
+    .challenge-info {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .challenge-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .challenge-info p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    /* Секция календаря */
+    .calendar-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .calendar-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .day-box {
+      background: #e9ecef;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .day-box:hover {
+      background: #d4d9de;
+    }
+    .day-plan {
+      display: none;
+      padding: 20px;
+      border-top: 1px solid #ccc;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Секция видеотренировки */
+    .video-training {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .video-training h2 {
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 25px;
+      height: 0;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 768px) {
+      .challenge-details {
+        flex-direction: column;
+      }
+      .challenge-image {
+        min-height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="/page" class="catalog-button">Вернуться в каталог челленджей</a>
+  </div>
+
+  <section class="challenge-details">
+    <div class="challenge-image">
+    </div>
+    <div class="challenge-info">
+      <h2>Здоровое питание</h2>
+      <p>
+        Переосмысли свой подход к еде и подари себе энергию, легкость и сияющий вид! Это не диета, а марафон по формированию осознанных пищевых привычек, которые останутся с тобой навсегда.
+      </p>
+    </div>
+  </section>
+
+  <section class="calendar-section">
+    <h2>Календарь</h2>
+    <div class="calendar-grid">
+      <div class="day-box" data-day="1">1</div>
+      <div class="day-box" data-day="2">2</div>
+      <div class="day-box" data-day="3">3</div>
+      <div class="day-box" data-day="4">4</div>
+      <div class="day-box" data-day="5">5</div>
+      <div class="day-box" data-day="6">6</div>
+      <div class="day-box" data-day="7">7</div>
+      <div class="day-box" data-day="8">8</div>
+      <div class="day-box" data-day="9">9</div>
+      <div class="day-box" data-day="10">10</div>
+      <div class="day-box" data-day="11">11</div>
+      <div class="day-box" data-day="12">12</div>
+      <div class="day-box" data-day="13">13</div>
+      <div class="day-box" data-day="14">14</div>
+      <div class="day-box" data-day="15">15</div>
+      <div class="day-box" data-day="16">16</div>
+      <div class="day-box" data-day="17">17</div>
+      <div class="day-box" data-day="18">18</div>
+      <div class="day-box" data-day="19">19</div>
+      <div class="day-box" data-day="20">20</div>
+      <div class="day-box" data-day="21">21</div>
+      <div class="day-box" data-day="22">22</div>
+      <div class="day-box" data-day="23">23</div>
+      <div class="day-box" data-day="24">24</div>
+      <div class="day-box" data-day="25">25</div>
+      <div class="day-box" data-day="26">26</div>
+      <div class="day-box" data-day="27">27</div>
+      <div class="day-box" data-day="28">28</div>
+      <div class="day-box" data-day="29">29</div>
+      <div class="day-box" data-day="30">30</div>
+    </div>
+    <div class="day-plan" id="day-plan">
+    </div>
+  </section>
+
+  <section class="video-training">
+    <h2>Общая видеотренировка</h2>
+    <div class="video-container">
+      <iframe src="{% static 'main/video/pitanie.mp4' %}" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dayBoxes = document.querySelectorAll('.day-box');
+      const dayPlan = document.getElementById('day-plan');
+
+      dayBoxes.forEach(function(box) {
+        box.addEventListener('click', function() {
+          const day = this.getAttribute('data-day');
+          dayPlan.innerHTML = `
+            <h3>План для дня ${day}</h3>
+          `;
+          dayPlan.style.display = "block";
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dayBoxes = document.querySelectorAll('.day-box');
+      const dayPlan = document.getElementById('day-plan');
+  
+      const dayDescriptions = {
+        1: "Начать дневник питания, завтрак с клетчаткой (овсянка, фрукты), фото текущего рациона.",  
+        2: "Исключить сладкие напитки, добавить 2 порции овощей в меню.",  
+        3: "Готовить все блюда дома (без полуфабрикатов), пить 1.5 л воды.",  
+        4: "Попробовать новый полезный продукт (киноа, чиа, авокадо).",  
+        5: "Замена вредного перекуса на полезный (орехи, йогурт, фрукты).",  
+        6: "День без сахара (включая скрытый в соусах).",  
+        7: "Устроить «разгрузку»: легкие блюда (супы, салаты), рефлексия за неделю.",  
+        8: "Считать калории/БЖУ (использовать приложение), добавить белок в каждый прием пищи.",  
+        9: "Приготовить смузи из зелени и ягод, исключить жареное.",  
+        10: "День без глютена/лактозы (по выбору), эксперимент с безглютеновой выпечкой.",  
+        11: "Все углеводы — только до 16:00, ужин белково-овощной.",  
+        12: "Заменить соль на травы/специи, попробовать ферментированные продукты (квашеная капуста).",  
+        13: "День на сезонных продуктах, поддержать локальных производителей.",  
+        14: "Сравнить фото рациона «до» и «сейчас», отметить изменения в самочувствии.",  
+        15: "Готовить с нуля (хлеб, соусы), исключить консервы.",  
+        16: "День без мяса (вегетарианское меню), добавить растительный белок (тофу, чечевица).",  
+        17: "Осознанный прием пищи: есть медленно, без гаджетов.",  
+        18: "Все порции — в 2 раза меньше обычного, использовать маленькие тарелки.",  
+        19: "День суперфудов (спирулина, ягоды годжи), смузи-боул.",  
+        20: "Исключить алкоголь, заменить на травяные чаи/детокс-напитки.",  
+        21: "Повторить самый сложный день первой недели, оценить прогресс.",  
+        22: "День интервального голодания (например, 16/8).",  
+        23: "Приготовить полезный десерт (финиковые конфеты, чизкейк из тофу).",  
+        24: "День без глютена и молочных продуктов, экспериментировать с рецептами.",  
+        25: "Устроить «чистку» холодильника: убрать всё вредное.",  
+        26: "День на моно-диете (например, только гречка/рис + овощи).",  
+        27: "Попробовать сыроедческое блюдо (салат, десерт без термической обработки).",  
+        28: "Составить план питания на следующую неделю, закупить продукты.",  
+        29: "Повторить любимый рецепт из марафона, устроить «праздничный» ужин.",  
+        30: "Фото итогового рациона, анализ дневника питания, постановка новых целей."    
+      };
+  
+      dayBoxes.forEach(function(box) {
+        box.addEventListener('click', function() {
+          const day = this.getAttribute('data-day');
+          const description = dayDescriptions[day] || "Описание для этого дня пока не добавлено.";
+  
+          dayPlan.innerHTML = `
+            <h3>План для дня ${day}</h3>
+            <p>${description}</p>
+          `;
+          dayPlan.style.display = "block";
+        });
+      });
+    });
+  </script>
+  </body>
+</html>
+
+

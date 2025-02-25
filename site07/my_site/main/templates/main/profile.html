@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+        }
+
+        .profile-header {
+            background: linear-gradient(135deg, rgba(42, 92, 246, 0.7), rgba(30, 64, 175, 0.7)), 
+                        url("{% static 'main/img/imagepro.png' %}") center/cover no-repeat;
+            color: white;
+            padding: 150px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .logout:hover {
+            background: #c82333;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: -100px auto 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #555;
+        }
+
+        .profile-info h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .profile-info p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .profile-actions a {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            color: white;
+            transition: background 0.3s;
+            margin: 10px;
+        }
+
+        .edit-profile {
+            background: #28a745;
+        }
+        .edit-profile:hover {
+            background: #218838;
+        }
+
+        .my-challenges {
+            background: #007bff;
+        }
+        .my-challenges:hover {
+            background: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="profile-header">
+        <a href="/" class="logout">Выйти</a>
+        <h1>Добро пожаловать, {{ user.username }}!</h1>
+        <p>Здесь вы можете управлять своим профилем и челленджами</p>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-avatar">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="profile-info">
+            <h2>{{ user.username }}</h2>
+            <p>Email: {{ user.email }}</p>
+        </div>
+        <div class="profile-actions">
+            <a href="#" class="edit-profile">Редактировать профиль</a>
+            <a href="#" class="my-challenges">Мои челленджи</a>
+        </div>
+    </div>
+</body>
+</html>
+

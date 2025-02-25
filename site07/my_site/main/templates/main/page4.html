@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Челлендж: 30 дней к успеху</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Общие стили, аналогичные главной странице */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background: #f8f9fa;
+      line-height: 1.6;
+      color: #333;
+    }
+    .top-bar {
+      background: rgb(98, 135, 248);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .catalog-button {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: #28a745;
+      transition: background 0.3s;
+    }
+    .catalog-button:hover {
+      background: #218838;
+    }
+
+    /* Секция с данными челленджа */
+    .challenge-details {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .challenge-image {
+      flex: 1;
+      background: url("{% static 'main/img/image4.png' %}") center/cover no-repeat;
+      min-height: 300px;
+    }
+    .challenge-info {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .challenge-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .challenge-info p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    /* Секция календаря */
+    .calendar-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .calendar-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .day-box {
+      background: #e9ecef;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .day-box:hover {
+      background: #d4d9de;
+    }
+    .day-plan {
+      display: none;
+      padding: 20px;
+      border-top: 1px solid #ccc;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Секция видеотренировки */
+    .video-training {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .video-training h2 {
+      margin-bottom: 20px;
+      color: #2A5CF6;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 25px;
+      height: 0;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 768px) {
+      .challenge-details {
+        flex-direction: column;
+      }
+      .challenge-image {
+        min-height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="/page" class="catalog-button">Вернуться в каталог челленджей</a>
+  </div>
+
+  <section class="challenge-details">
+    <div class="challenge-image">
+    </div>
+    <div class="challenge-info">
+      <h2>Изучение программирования</h2>
+      <p>
+        Погрузись в мир программирования, освои основы и создай свой первый проект, даже если ты никогда не открывал/а редактор кода! Это не просто уроки — это практический марафон для тех, кто готов мыслить логически и творить цифровые чудеса.
+      </p>
+    </div>
+  </section>
+
+  <section class="calendar-section">
+    <h2>Календарь</h2>
+    <div class="calendar-grid">
+      <div class="day-box" data-day="1">1</div>
+      <div class="day-box" data-day="2">2</div>
+      <div class="day-box" data-day="3">3</div>
+      <div class="day-box" data-day="4">4</div>
+      <div class="day-box" data-day="5">5</div>
+      <div class="day-box" data-day="6">6</div>
+      <div class="day-box" data-day="7">7</div>
+      <div class="day-box" data-day="8">8</div>
+      <div class="day-box" data-day="9">9</div>
+      <div class="day-box" data-day="10">10</div>
+      <div class="day-box" data-day="11">11</div>
+      <div class="day-box" data-day="12">12</div>
+      <div class="day-box" data-day="13">13</div>
+      <div class="day-box" data-day="14">14</div>
+      <div class="day-box" data-day="15">15</div>
+      <div class="day-box" data-day="16">16</div>
+      <div class="day-box" data-day="17">17</div>
+      <div class="day-box" data-day="18">18</div>
+      <div class="day-box" data-day="19">19</div>
+      <div class="day-box" data-day="20">20</div>
+      <div class="day-box" data-day="21">21</div>
+      <div class="day-box" data-day="22">22</div>
+      <div class="day-box" data-day="23">23</div>
+      <div class="day-box" data-day="24">24</div>
+      <div class="day-box" data-day="25">25</div>
+      <div class="day-box" data-day="26">26</div>
+      <div class="day-box" data-day="27">27</div>
+      <div class="day-box" data-day="28">28</div>
+      <div class="day-box" data-day="29">29</div>
+      <div class="day-box" data-day="30">30</div>
+    </div>
+    <div class="day-plan" id="day-plan">
+    </div>
+  </section>
+
+  <section class="video-training">
+    <h2>Общая видеотренировка</h2>
+    <div class="video-container">
+      <iframe src="{% static 'main/video/progr.mp4' %}" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dayBoxes = document.querySelectorAll('.day-box');
+      const dayPlan = document.getElementById('day-plan');
+
+      dayBoxes.forEach(function(box) {
+        box.addEventListener('click', function() {
+          const day = this.getAttribute('data-day');
+          dayPlan.innerHTML = `
+            <h3>План для дня ${day}</h3>
+          `;
+          dayPlan.style.display = "block";
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dayBoxes = document.querySelectorAll('.day-box');
+      const dayPlan = document.getElementById('day-plan');
+  
+      const dayDescriptions = {  
+            1: "Установить редактор кода (VS Code/PyCharm), написать 'Hello, World!' на Python.",  
+            2: "Изучить переменные и типы данных, создать калькулятор возраста.",  
+            3: "Освоить условные операторы: написать программу-гороскоп.",  
+            4: "Циклы: создать 'угадай число' с подсказками.",  
+            5: "Функции: написать конвертер валют.",  
+            6: "Работа с файлами: сохранить данные программы в .txt.",  
+            7: "Итоговый проект недели: текстовый квест с выбором действий.",  
+            8: "Знакомство с HTML: сверстать страницу-визитку.",  
+            9: "CSS: стилизовать визитку, добавить анимацию кнопки.",  
+            10: "JavaScript: сделать интерактивную кнопку-счётчик.",  
+            11: "DOM: создать список дел с добавлением/удалением задач.",  
+            12: "API: получить данные о погоде через OpenWeatherMap.",  
+            13: "Итоговый проект недели: веб-приложение To-Do List.",  
+            14: "Основы Git: создать репозиторий на GitHub, загрузить код.",  
+            15: "Изучить алгоритмы: решить 3 задачи на сортировку.",  
+            16: "Работа с библиотеками: написать парсер сайта на Beautiful Soup.",  
+            17: "Базы данных: создать простую SQL-таблицу с пользователями.",  
+            18: "Фреймворки: запустить первый проект на Flask/Django.",  
+            19: "Тестирование: написать unit-тест для калькулятора.",  
+            20: "Итоговый проект недели: блог с CRUD-функционалом.",  
+            21: "Знакомство с ООП: создать класс 'Автомобиль' с методами.",  
+            22: "Искусственный интеллект: обучить модель распознавать цифры (MNIST).",  
+            23: "Мобильная разработка: собрать апп на Flutter/React Native.",  
+            24: "Игра на PyGame/JS: 'Змейка' или 'Крестики-нолики'.",  
+            25: "Опенсорс: внести правку в чужой репозиторий на GitHub.",  
+            26: "Рефакторинг: улучшить код прошлых проектов.",  
+            27: "Создать API: написать простой REST-сервис.",  
+            28: "Деплой: выложить проект на Heroku/Netlify.",  
+            29: "Подготовить резюме и LinkedIn-профиль с проектами.",  
+            30: "Финальный проект: персональный сайт-портфолио + презентация."  
+      };
+  
+      dayBoxes.forEach(function(box) {
+        box.addEventListener('click', function() {
+          const day = this.getAttribute('data-day');
+          const description = dayDescriptions[day] || "Описание для этого дня пока не добавлено.";
+  
+          dayPlan.innerHTML = `
+            <h3>План для дня ${day}</h3>
+            <p>${description}</p>
+          `;
+          dayPlan.style.display = "block";
+        });
+      });
+    });
+  </script>
+  </body>
+</html>
